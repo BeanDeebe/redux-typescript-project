@@ -16,15 +16,19 @@ const RepositoriesList: React.FC = () => {
 
     }
 
-    return <div>
-        <form onSubmit={onSubmit}>
-            <input value={term} onChange={e => setTerm(e.target.value)} />
-            <button>Search</button>
-        </form>
-        {error && <h3>{error}</h3>}
-        {loading && <h3>Loading...</h3>}
-        {!error && !loading && data.map((name) => <div key={name}>{name}</div>)}
-    </div>
+    return (
+        <div className='m-3'>
+            <h1 className="m-3 title">Search for a Package</h1>
+            <form onSubmit={onSubmit} className="form-control-lg">
+                <input className="rounded m-3 input-box" value={term} onChange={e => setTerm(e.target.value)} />
+                <button className="btn btn-primary">Search</button>
+            </form>
+            {error && <h3>{error}</h3>}
+            {loading && <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>}
+            {!error && !loading && data.map((name) => <div key={name}>{name}</div>)}
+        </div>)
 };
 
 export default RepositoriesList;

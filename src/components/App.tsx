@@ -5,11 +5,14 @@ import RepositoriesList from './RepositoriesList';
 const App = () => {
   return (
     <Provider store={store}>
-      <div>
-        <h1>Search for a Package</h1>
-        <RepositoriesList />
+      <div className="row">
+        <div className="col-3"></div>
+        <div className="col-8">
+          <RepositoriesList />
+        </div>
+        <div className="col-3"></div>
       </div>
-    </Provider>
+    </Provider >
   )
 }
 
